@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(14, 165, 233, 0.28),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(168, 85, 247, 0.24),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #06111f, #0f172a);
+  color: #f8fafc;
+}
+
+.study-shell {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 44px 0;
+}
+
+.study-intro {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 25px;
+  align-items: stretch;
+  margin-bottom: 25px;
+}
+
+.study-tag {
+  display: inline-block;
+  margin-bottom: 15px;
+  background: rgba(14, 165, 233, 0.18);
+  color: #7dd3fc;
+  border-radius: 999px;
+  padding: 8px 15px;
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.study-intro h1 {
+  max-width: 700px;
+  margin-bottom: 14px;
+  font-size: clamp(38px, 7vw, 74px);
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.study-intro p {
+  max-width: 620px;
+  color: #cbd5e1;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.deck-counter,
+.composer-card,
+.deck-tools {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.075);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.deck-counter {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 30px;
+  padding: 25px;
+}
+
+.deck-counter span {
+  display: block;
+  font-size: 58px;
+  font-weight: 950;
+  padding: 25px;
+}
+
+.deck-counter p {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.composer-card {
+  margin-bottom: 20px;
+  padding: 25px;
+  border-radius: 30px;
+}
+
+.composer-card h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+#cardForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 15px;
+  align-items: end;
+}
+
+.field-group {
+  display: grid;
+  gap: 8px;
+}
+
+.field-group label {
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.field-group input,
+.field-group textarea,
+.deck-tools input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 18px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.095);
+  color: white;
+  font-size: 15px;
+}
+
+.field-group textarea {
+  min-height: 52px;
+  max-height: 140px;
+  resize: vertical;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder,
+.deck-tools input::placeholder {
+  color: #94a3b8;
+}
+
+#cardForm button,
+.deck-tools button {
+  border: none;
+  border-radius: 18px;
+  padding: 15px 22px;
+  background: #0ea5e9;
+  color: white;
+  font-size: 15px;
+  font-weight: 950;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+#cardForm button:hover,
+.deck-tools button:hover {
+  background: #38bdf8;
+  transform: translateY(-2px);
+}
+
+.deck-tools {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.deck-tools button {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.memory-card {
+  height: 250px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s ease;
+  cursor: pointer;
+}
+
+.memory-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backface-visibility: hidden;
+  border-radius: 28px;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.26);
+}
+
+.card-front {
+  background: linear-gradient(
+    145deg,
+    rgba(14, 165, 233, 0.22),
+    rgba(255, 255, 255, 0.075)
+  );
+}
+
+.card-back {
+  background: linear-gradient(
+    145deg,
+    rgba(168, 85, 247, 0.24),
+    rgba(255, 255, 255, 0.075)
+  );
+  transform: rotateY(180deg);
+}
+
+.card-label {
+  color: #7dd3fc;
+  font-size: 13px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-back .card-label {
+  color: #d8b4fe;
+}
+
+.card-text {
+  color: #f8fafc;
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.card-hint {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.delete-card {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.delete-card:hover {
+  transform: scale(1.08);
+}
+
+.empty-deck {
+  grid-column: 1 / -1;
+  padding: 54px 24px;
+  text-align: center;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.empty-deck h3 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.empty-deck p {
+  color: #cbd5e1;
+}
+
+@media (max-width: 850px) {
+  .study-intro {
+    grid-template-columns: 1fr;
+  }
+
+  #cardForm {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-tools {
+    grid-template-columns: 1fr;
+  }
+}

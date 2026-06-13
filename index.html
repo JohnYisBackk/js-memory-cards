@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Memory Cards PRO</title>
+  </head>
+  <body>
+    <main class="study-shell">
+      <section class="study-intro">
+        <div>
+          <p class="study-tag">Memory Cards PRO</p>
+          <h1>Build your own flashcard deck</h1>
+          <p>
+            Create question and answer cards, flip them, search through your
+            deck and keep your study cards saved.
+          </p>
+        </div>
+
+        <div class="deck-counter">
+          <span id="totalCards">0</span>
+          <p>Total Cards</p>
+        </div>
+      </section>
+
+      <section class="composer-card">
+        <h2>Create New Card</h2>
+
+        <form id="cardForm">
+          <div class="field-group">
+            <label for="questionInput">Question</label>
+            <input
+              type="text"
+              id="questionInput"
+              placeholder="Example: What does DOM stand for?"
+            />
+          </div>
+
+          <div class="field-group">
+            <label for="answerInput">Answer</label>
+            <textarea
+              id="answerInput"
+              placeholder="Example: Document Object Model"
+            ></textarea>
+          </div>
+
+          <button type="submit">Add Memory Card</button>
+        </form>
+      </section>
+
+      <section class="deck-tools">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search your cards..."
+        />
+
+        <button id="clearSearchBtn" type="button">Clear Search</button>
+      </section>
+
+      <secton id="cardsGrid" class="cards-grid">
+        <!-- Cards will be rendered here -->
+      </secton>
+    </main>
+  </body>
+</html>
